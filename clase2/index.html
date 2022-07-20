@@ -1,0 +1,44 @@
+<!-- CLASE 2 -->
+<!-- dibujar lineas con canva -->
+<!DOCTYPE HTML>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+function dibujar()
+{
+   var lienzo=retornarLienzo("lienzo1");
+   if (lienzo)
+   { 
+    lienzo.strokeStyle = "rgb(200,0,0)";
+    //Inicio de camino
+    lienzo.beginPath();
+    lienzo.moveTo(0,0);
+    lienzo.lineTo(150,300);
+    lienzo.lineTo(300,0);
+    //Trazar linea
+    lienzo.stroke();
+   }
+}
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

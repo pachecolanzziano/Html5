@@ -1,0 +1,108 @@
+<!--  PROBLEMA CLASE 2 -->
+<!-- Dibujar una cuadrícula formada por 10 líneas horizontales y 10 líneas verticales. -->
+<!-- EXTRA: Creacion de lineas con un ciclo y un cubo -->
+<!DOCTYPE HTML>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+function dibujar()
+{
+   var lienzo=retornarLienzo("lienzo1");
+   if (lienzo)
+   { 
+    lienzo.strokeStyle = "rgb(200,0,0)";
+    lienzo.beginPath();
+    let tamaño = 200
+    for (let i = 0; i <= tamaño; i+=20){
+      //lineas horizontales
+      lienzo.moveTo(1,i);
+      lienzo.lineTo(tamaño,i);
+      //lineas verticales
+      lienzo.moveTo(i,1);
+      lienzo.lineTo(i,tamaño);
+    }
+    // cubo
+    // lienzo.moveTo(0,50);
+    // lienzo.lineTo(50,0);
+    // lienzo.lineTo(150,0);
+    // lienzo.lineTo(100,50);
+    // lienzo.lineTo(0,50);
+    // lienzo.lineTo(0,150);
+    // lienzo.lineTo(100,150);
+    // lienzo.lineTo(100,50);
+    // lienzo.moveTo(100,150);
+    // lienzo.lineTo(150,100);
+    // lienzo.lineTo(150,0);
+
+    //lineas horizontales
+    // lienzo.moveTo(1,1);
+    // lienzo.lineTo(200,1);
+    // lienzo.moveTo(1,20);
+    // lienzo.lineTo(200,20);
+    // lienzo.moveTo(1,40);
+    // lienzo.lineTo(200,40);
+    // lienzo.moveTo(1,60);
+    // lienzo.lineTo(200,60);
+    // lienzo.moveTo(1,80);
+    // lienzo.lineTo(200,80);
+    // lienzo.moveTo(1,100);
+    // lienzo.lineTo(200,100);
+    // lienzo.moveTo(1,120);
+    // lienzo.lineTo(200,120);
+    // lienzo.moveTo(1,140);
+    // lienzo.lineTo(200,140);
+    // lienzo.moveTo(1,160);
+    // lienzo.lineTo(200,160);
+    // lienzo.moveTo(1,180);
+    // lienzo.lineTo(200,180);
+    // lienzo.moveTo(1,200);
+    // lienzo.lineTo(200,200);
+    //lineas verticales
+    // lienzo.moveTo(1,1);
+    // lienzo.lineTo(1, 200);
+    // lienzo.moveTo(20, 1);
+    // lienzo.lineTo(20, 200);
+    // lienzo.moveTo(40, 1);
+    // lienzo.lineTo(40, 200);
+    // lienzo.moveTo(60,1);
+    // lienzo.lineTo(60, 200);
+    // lienzo.moveTo(80,1);
+    // lienzo.lineTo(80, 200);
+    // lienzo.moveTo(100,1);
+    // lienzo.lineTo(100, 200);
+    // lienzo.moveTo(120,1);
+    // lienzo.lineTo(120, 200);
+    // lienzo.moveTo(140,1);
+    // lienzo.lineTo(140, 200);
+    // lienzo.moveTo(160,1);
+    // lienzo.lineTo(160, 200);
+    // lienzo.moveTo(180,1);
+    // lienzo.lineTo(180, 200);
+    // lienzo.moveTo(200,1);
+    // lienzo.lineTo(200, 200);
+    lienzo.stroke();
+   }
+}
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="1000" height="1000">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>
