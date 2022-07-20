@@ -40,6 +40,7 @@ Teoría y ejercicios de HTML 5
 - lineWidth -> ancho de la linea
 - lineCap -> puntos extremos de la línea: butt, round, square
 - lineJoin -> graficar en los vértices de uniones de segmentos: bevel, round, miter
+
 **Ejercicio**: Dibujar un triángulo con líneas de 20 píxeles de ancho y los vértices redondeados.(resuelto)
 > *Carpeta Clase4.*
 ## clase 5: rectangulo relleno
@@ -48,6 +49,7 @@ Teoría y ejercicios de HTML 5
 
 *JS*
 - fillStyle 
-- fillRect ->  x,y,ancho,alto:
+- fillRect ->  x,y,ancho,alto
+
 **Ejercicio**: Dibujar 250 cuadraditos (50 por línea) Los colores de los cuadrados deben empezar en negro y avanzar hasta el rojo.
 > *Carpeta Clase5.*
