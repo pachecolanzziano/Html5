@@ -1,0 +1,48 @@
+<!--  PROBLEMA CLASE 4 -->
+<!-- Dibujar un triángulo con líneas de 20 píxeles de ancho y los vértices redondeados. -->
+<!DOCTYPE HTML>
+<head>
+  <title>Estio de lineas</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) { 
+    lienzo.strokeStyle = "rgb(200,0,0)";
+    lienzo.lineWidth=20;
+    lienzo.lineCap = "round"
+    lienzo.lineJoin="round"
+    lienzo.beginPath();
+    lienzo.moveTo(50,50);
+    lienzo.lineTo(250,50);
+    lienzo.lineTo(150,250);
+    lienzo.lineTo(50,50);
+    lienzo.stroke();
+  }
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="1000" height="1000">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

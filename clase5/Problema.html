@@ -1,0 +1,42 @@
+<!--  PROBLEMA CLASE 4 -->
+<!-- Dibujar 250 cuadraditos (50 por línea) Los colores de los cuadrados deben empezar en negro y avanzar hasta el rojo. -->
+<!DOCTYPE HTML>
+<head>
+  <title>Estio de lineas</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) { 
+    var color=0;
+    for(var fila=1;fila<=5;fila++) {
+      for(var col=1;col<=50;col++) {  
+        lienzo.fillStyle="rgb("+color+",0,0)";
+        lienzo.fillRect(col*20,fila*20,15,15);
+        color++;
+      } 
+    }      
+  }
+}
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="1000" height="1000">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

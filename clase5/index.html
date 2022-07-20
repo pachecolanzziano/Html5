@@ -1,0 +1,34 @@
+<!-- CLASE 5 -->
+<!-- rectangulo con relleno -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) { 
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.fillRect(10,10,200,100);
+  }
+}
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

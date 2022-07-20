@@ -1,0 +1,78 @@
+<!-- CLASE 4 -->
+<!-- Estio de lineas -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Estio de lineas</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) { 
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.lineWidth=7;
+    lienzo.moveTo(10,5);
+    lienzo.lineTo(10,295);
+    lienzo.stroke();
+
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(0,255,0)";
+    lienzo.lineCap="butt";
+    lienzo.moveTo(30,5);
+    lienzo.lineTo(30,295);
+    lienzo.stroke();
+    lienzo.lineCap="round";
+    lienzo.beginPath();
+    lienzo.moveTo(50,5);
+    lienzo.lineTo(50,295);
+    lienzo.stroke();
+    lienzo.lineCap="square";
+    lienzo.beginPath();
+    lienzo.moveTo(70,5);
+    lienzo.lineTo(70,295);
+    lienzo.stroke();
+
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(0,0,255)";
+    lienzo.lineJoin="bevel";
+    lienzo.moveTo(100,90);
+    lienzo.lineTo(130,10);
+    lienzo.lineTo(160,90);
+    lienzo.stroke();
+    
+    lienzo.beginPath();
+    lienzo.lineJoin="round";
+    lienzo.moveTo(100,180);
+    lienzo.lineTo(130,100);
+    lienzo.lineTo(160,180);
+    lienzo.stroke();
+    
+    lienzo.beginPath();
+    lienzo.lineJoin="miter";
+    lienzo.moveTo(100,270);
+    lienzo.lineTo(130,190);
+    lienzo.lineTo(160,270);
+    lienzo.stroke();
+    
+  }
+}
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!--  PROBLEMA CLASE 3 -->
+<!-- Dibujar tres cuadrados de color rojo, verde y azul. -->
+<!DOCTYPE HTML>
+<head>
+  <title>Rectangulo</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) { 
+    lienzo.strokeStyle = "rgb(0,0,255)";
+    lienzo.strokeRect(10,10,100,100);
+    lienzo.strokeStyle = "rgb(0,255,0)";
+    lienzo.strokeRect(120,10,100,100);
+    lienzo.strokeStyle = "rgb(255,0,0)";
+    lienzo.strokeRect(230,10,100,100);
+    // rectangulos posiciones ramdon
+    // let i = 0
+    // while(i < 10){
+    //   lienzo.strokeStyle = "rgb(255,0,0)";
+    //   lienzo.strokeRect(getRandomInt(600), getRandomInt(100), 200, 100);
+    //   lienzo.strokeStyle = "rgb(0,255,0)";
+    //   lienzo.strokeRect(getRandomInt(600), getRandomInt(100), 200, 100);
+    //   lienzo.strokeStyle = "rgb(0,0,255)";
+    //   lienzo.strokeRect(getRandomInt(600), getRandomInt(100), 200, 100);
+    //   i++;
+    // }
+  }
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="1000" height="1000">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>
