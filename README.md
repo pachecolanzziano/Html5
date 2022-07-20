@@ -20,5 +20,6 @@ Teoría y ejercicios de HTML 5
 - moveTo -> mover la posición del puntero (x,y)
 - lineTo -> coordenadas del trazo
 - stroke -> mostrar los trazos
+
 **Ejercicio**: Dibujar una cuadrícula formada por 10 líneas horizontales y 10 líneas verticales(resuelto)
 > *Carpeta Clase2.*
