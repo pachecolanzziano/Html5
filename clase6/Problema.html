@@ -1,9 +1,9 @@
-<!-- CLASE 5 -->
-<!-- rectangulo con relleno -->
+<!--  PROBLEMA CLASE 6 -->
+<!-- Dibujar un cuadrado. Luego de 3 segundos hacer que se borre. -->
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>rectangulo con relleno</title>  
+  <title>Título de la página</title>
   <meta charset="UTF-8">
 
 <script type="text/javascript">
@@ -18,9 +18,17 @@ function retornarLienzo(x) {
 
 function dibujar() {
   var lienzo=retornarLienzo("lienzo1");
-  if (lienzo) { 
+  if (lienzo) {
     lienzo.fillStyle="rgb(255,0,0)";
-    lienzo.fillRect(10,10,200,100);
+    lienzo.fillRect(0,0,300,300);
+  }
+  setTimeout(borrar,3000);
+}
+
+function borrar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
   }
 }
 </script>

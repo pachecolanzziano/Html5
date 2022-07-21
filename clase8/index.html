@@ -1,0 +1,52 @@
+<!-- CLASE 8 -->
+<!-- arcos rellenos y lineal -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>arcos rellenos y lineal</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.beginPath();
+    lienzo.arc(100,100,50,0,Math.PI,true);
+    lienzo.stroke();
+    
+    lienzo.strokeStyle="rgb(0,255,0)";
+    lienzo.beginPath();
+    lienzo.arc(100,200,50,0,Math.PI,false);
+    lienzo.stroke();
+    
+    lienzo.fillStyle="rgb(0,0,288)";
+    lienzo.beginPath();    
+    lienzo.arc(200,100,50,0,Math.PI,true);
+    lienzo.fill();
+    
+    lienzo.fillStyle="rgb(255,255,0)";
+    lienzo.beginPath();
+    lienzo.arc(200,200,50,0,Math.PI*2,true);
+    lienzo.fill();
+    
+  }
+}
+
+</script>
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

@@ -1,9 +1,9 @@
-<!-- CLASE 5 -->
-<!-- rectangulo con relleno -->
+<!-- CLASE 6 -->
+<!-- borrar una región -->
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>rectangulo con relleno</title>  
+  <title>borrar una region</title>  
   <meta charset="UTF-8">
 
 <script type="text/javascript">
@@ -18,9 +18,12 @@ function retornarLienzo(x) {
 
 function dibujar() {
   var lienzo=retornarLienzo("lienzo1");
-  if (lienzo) { 
+  if (lienzo) {
     lienzo.fillStyle="rgb(255,0,0)";
-    lienzo.fillRect(10,10,200,100);
+    lienzo.fillRect(0,0,300,300);
+    lienzo.clearRect(10,10,20,20);
+    lienzo.clearRect(140,140,20,20);
+    lienzo.clearRect(270,270,20,20);
   }
 }
 </script>

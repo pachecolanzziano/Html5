@@ -32,7 +32,7 @@ Teoría y ejercicios de HTML 5
 
 **Ejercicio**: Dibujar tres cuadrados de color rojo, verde y azul.(resuelto)
 > *Carpeta Clase3.*
-## clase 4: Estio de lineas
+## clase 4: Estilo de lineas
 *HTML*
 - canvas
 
@@ -53,3 +53,34 @@ Teoría y ejercicios de HTML 5
 
 **Ejercicio**: Dibujar 250 cuadraditos (50 por línea) Los colores de los cuadrados deben empezar en negro y avanzar hasta el rojo.
 > *Carpeta Clase5.*
+## clase 6: borrar una región
+*HTML*
+- canvas
+
+*JS*
+- clearRect -> borra una parte
+- setTimeout -> en un intervalo de tiempo ejecuta una funcion
+
+**Ejercicio**: Dibujar un cuadrado. Luego de 3 segundos hacer que se borre.
+> *Carpeta Clase6.*
+## clase 7: dibujar varias líneas y rellenar la figura creada
+*HTML*
+- canvas
+
+*JS*
+- fill() -> relleno
+- stroke() -> contorno
+
+**Ejercicio**: Dibujar un paralelogramo de color verde.
+> *Carpeta Clase7.*
+## clase 8: arcos rellenos y lineal
+*HTML*
+- canvas
+
+*JS*
+- arc -> dibuja un arco,usa radianes como medida (base pi Math.PI)
+- setInterval -> repite una funcion en intervalo de tiempo
+- clearRect -> limpia el lienzo
+ 
+**Ejercicio**: Mostrar un círculo que se desplace de izquierda a derecha. Cada vez que llega a la columna 300 hacer que comience nuevamente en la columna 0..
+> *Carpeta Clase8.*

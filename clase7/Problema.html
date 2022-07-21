@@ -1,9 +1,9 @@
-<!-- CLASE 5 -->
-<!-- rectangulo con relleno -->
+<!--  PROBLEMA CLASE 7 -->
+<!-- Dibujar un paralelogramo de color verde. -->
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>rectangulo con relleno</title>  
+  <title>dibujar varias líneas y rellenar la figura creada</title>  
   <meta charset="UTF-8">
 
 <script type="text/javascript">
@@ -18,13 +18,21 @@ function retornarLienzo(x) {
 
 function dibujar() {
   var lienzo=retornarLienzo("lienzo1");
-  if (lienzo) { 
-    lienzo.fillStyle="rgb(255,0,0)";
-    lienzo.fillRect(10,10,200,100);
+  if (lienzo) {
+    lienzo.fillStyle="rgb(0,255,0)";
+    lienzo.strokeStyle="rgb(0,205,0)";
+    lienzo.lineWidth=2;
+    lienzo.beginPath();
+    lienzo.moveTo(50,10);
+    lienzo.lineTo(10,100);
+    lienzo.lineTo(100,100);
+    lienzo.lineTo(150,10);
+    lienzo.lineTo(50,10);
+    lienzo.fill();
+    lienzo.stroke();    
   }
 }
 </script>
-
 </head>
 <body onLoad="dibujar()">
 <canvas id="lienzo1" width="300" height="300">
