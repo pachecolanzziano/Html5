@@ -1,0 +1,92 @@
+<!--  PROBLEMA CLASE 9 -->
+<!-- Mostrar un círculo que se desplace de izquierda a derecha. Cada vez que llega a la columna 300 hacer que comience nuevamente en la columna 0. -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>curva de bezier</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function inicio() {
+  setInterval(dibujar,300);
+}
+
+var x=100;
+var y=50;
+var c = 1;
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.lineWidth=10;
+    lienzo.lineCap="round";
+    lienzo.beginPath();
+    lienzo.moveTo(100,100);
+    lienzo.lineTo(x,y);
+    lienzo.stroke();
+    if(c == 1){
+      x++;
+      y++;
+      if(x == 150 && y ==100){c=2}
+    }else if(c == 2){
+      x--;
+      y++;
+      if(x == 100 && y ==150){c=3}
+    }else if(c == 3){
+      x--;
+      y--;
+      if(x == 50 && y ==100){c=4}
+    }else{
+      x++;
+      y--;
+      if(x == 100 && y == 50){c=1}
+    }
+    // if (direccion) {
+    //   if(x<=100 && y>=150){
+    //     x--;
+    //     y--;
+    //     if (x==50 && y==100)
+    //       direccion=false;
+    //   }else{
+    //     x++;
+    //     y++;
+    //     if (x==150 && y==100)
+    //       direccion=false;
+    //   }
+    // } else {
+    //   x--;
+    //   y++;
+    //   if(x==100 && y==150) 
+    //     direccion=true;
+    // }
+    // lienzo.moveTo(100,100);
+    // lienzo.lineTo(100,50);//12
+    // lienzo.moveTo(100,100);
+    // lienzo.lineTo(150,100);//3
+    // lienzo.moveTo(100,100);
+    // lienzo.lineTo(100,150);//6
+    // lienzo.moveTo(100,100);
+    // lienzo.lineTo(50,100);//9
+    
+  }
+}
+</script>
+
+</head>
+<body onLoad="inicio()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

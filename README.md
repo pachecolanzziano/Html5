@@ -82,5 +82,17 @@ Teoría y ejercicios de HTML 5
 - setInterval -> repite una funcion en intervalo de tiempo
 - clearRect -> limpia el lienzo
  
-**Ejercicio**: Mostrar un círculo que se desplace de izquierda a derecha. Cada vez que llega a la columna 300 hacer que comience nuevamente en la columna 0..
+**Ejercicio**: Mostrar un círculo que se desplace de izquierda a derecha. Cada vez que llega a la columna 300 hacer que comience nuevamente en la columna 0.
 > *Carpeta Clase8.*
+## clase 9: curva de bezier
+*HTML*
+- canvas
+
+*JS*
+- setInterval -> repite una funcion en intervalo de tiempo
+- moveTo ->mueve cordenadas del puntero
+- bezierCurveTo -> dibuja una curva bazier con dos punto de inflexion
+ 
+**Ejercicio**: Crear una curva de bézier y hacer que los puntos de atracción cambien de valor. Redibujar la curva cada vez que modificamos dichos valores.
+bonus -> animacion del segundero en un reloj
+> *Carpeta Clase9.*

@@ -1,0 +1,39 @@
+<!-- CLASE 9 -->
+<!-- curva de bezier -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>curva de bezier</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.beginPath();
+    lienzo.moveTo(0,150);
+    lienzo.bezierCurveTo(100,50,200,250,290,150);
+    lienzo.stroke();
+    
+  }
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>
