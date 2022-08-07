@@ -1,0 +1,33 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+  
+<script type="text/javascript">
+
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(mostrarCoordenada);
+        } else {
+          alert('El navegador no dispone la capacidad de geolocalización');
+        }
+    }
+  
+    function mostrarCoordenada(posicion) {
+        document.getElementById('dato').innerHTML='Latitud:'+
+           posicion.coords.latitude+
+           '<br> Longitud:'+posicion.coords.longitude+
+           '<br>Exactitud:'+posicion.coords.accuracy;
+    }
+       
+</script>  
+  
+</head>
+<body>
+  <span id="dato"></span>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+  
+<script type="text/javascript">
+
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('obtener').addEventListener('click', recuperarLocalizacion, false);
+    }
+
+    function recuperarLocalizacion() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(mostrarCoordenada,errores,{timeout:50});
+        } else {
+            alert('El navegador no dispone la capacidad de geolocalización');
+        }
+    }
+    
+    function mostrarCoordenada(posicion) {
+        var direccion = posicion.coords.latitude + "," + posicion.coords.longitude;
+        var mapa = "http://maps.googleapis.com/maps/api/staticmap?center="
+           +direccion+"&zoom=14&size=500x500&sensor=false";
+        document.getElementById("dato").innerHTML = "<img src='"+mapa+"'>";    
+    }
+    
+    function errores(err) {
+        if (err.code == err.TIMEOUT) 
+            alert("Se ha superado el tiempo de espera");
+        if (err.code == err.PERMISSION_DENIED)     
+            alert("El usuario no permitió informar su posición");
+        if (err.code == err.POSITION_UNAVAILABLE)                 
+            alert("El dispositivo no pudo recuperar la posición actual");
+    }
+
+        
+</script>  
+  
+</head>
+<body>
+  <input type="button" id="obtener" value="Obtener la localización actual en Google Maps">
+  <br>
+  <div id="dato"></div>
+</body>
+</html>

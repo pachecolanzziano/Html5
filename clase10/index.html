@@ -1,0 +1,45 @@
+<!-- CLASE 9 -->
+<!-- graficar texto -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>graficar texto</title>  
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.font="bold 25px Arial";
+    lienzo.fillText("Hola Mundo",150,50);
+    lienzo.textAlign="center";
+    lienzo.fillText("Hola Mundo",150,100);    
+    lienzo.textAlign="right";
+    lienzo.fillText("Hola Mundo",150,150);
+    var anchopx=lienzo.measureText("Hola Mundo");
+    lienzo.textAlign="start";
+    lienzo.fillText(anchopx.width,150,200);    
+    lienzo.strokeStyle="rgb(0,0,255)";
+    lienzo.strokeText("Fin",150,250);
+  }
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

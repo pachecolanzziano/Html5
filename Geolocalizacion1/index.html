@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+  
+<script type="text/javascript">
+
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('obtener').addEventListener('click', recuperarLocalizacion, false);
+    }
+
+    function recuperarLocalizacion() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(mostrarCoordenada);
+        } else {
+          alert('El navegador no dispone la capacidad de geolocalización');
+        }
+    }
+    
+    function mostrarCoordenada(posicion) {
+        document.getElementById('dato').innerHTML='Latitud:'+
+           posicion.coords.latitude+
+           '<br> Longitud:'+posicion.coords.longitude+
+           '<br>Exactitud:'+posicion.coords.accuracy;
+    }
+       
+</script>  
+  
+</head>
+<body>
+  <input type="button" id="obtener" value="Obtener la localización actual">
+  <br>
+  <span id="dato"></span>
+</body>
+</html>

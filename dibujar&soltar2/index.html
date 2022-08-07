@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<style>
+  #recuadro {
+    width:300px;
+    height:50px;
+    background-color:yellow;
+    border:2px solid #ff0000;
+    font-size:1.5em;
+  }
+  #palabras span {
+    font-size:1.5em;
+  }
+  #palabras {
+    padding-top:50px;
+  }
+</style>  
+
+<script>
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('palabra1').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra2').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra3').addEventListener('dragstart', dragInicio, false);
+        document.getElementById('palabra4').addEventListener('dragstart', dragInicio, false);         
+        document.getElementById('palabra1').addEventListener('drag', dragMueve, false);
+        document.getElementById('palabra2').addEventListener('drag', dragMueve, false);
+        document.getElementById('palabra3').addEventListener('drag', dragMueve, false);
+        document.getElementById('palabra4').addEventListener('drag', dragMueve, false);                 
+        document.getElementById('palabra1').addEventListener('dragend', dragSolto, false);
+        document.getElementById('palabra2').addEventListener('dragend', dragSolto, false);
+        document.getElementById('palabra3').addEventListener('dragend', dragSolto, false);
+        document.getElementById('palabra4').addEventListener('dragend', dragSolto, false);
+        document.getElementById('recuadro').addEventListener('dragover', permitirDrop, false);
+        document.getElementById('recuadro').addEventListener('drop', drop, false);
+    }
+    
+    function dragInicio(ev)
+    {
+        ev.dataTransfer.setData("Text",ev.target.id);        
+    }    
+
+    function dragMueve(ev)
+    {
+        var ale=200+parseInt(Math.random()*55);
+        var rojo=ale;
+        var verde=ale;
+        var azul=ale;
+        document.getElementById('recuadro').style.background = "rgb("+rojo+","+verde+","+azul+")";
+    }
+
+    function dragSolto(ev)
+    {
+        document.getElementById('recuadro').style.background = "rgb(255,255,0)";        
+    }            
+    
+    function drop(ev)
+    {
+        var dato=ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(dato));
+        ev.preventDefault();        
+        document.getElementById(dato).removeEventListener('dragstart', dragInicio, false);
+    }  
+
+    function permitirDrop(ev)
+    {
+        ev.preventDefault();
+    }
+    
+</script>
+
+</head>
+<body>
+  <p>Arrastre en orden las palabras para formar la oración correcta.</p>
+  <div id="recuadro"></div>
+  <div id="palabras">
+    <span id="palabra1" draggable="true">the </span>
+    <span id="palabra2" draggable="true">is </span>
+    <span id="palabra3" draggable="true">What </span>
+    <span id="palabra4" draggable="true">time </span>    
+  </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!--  PROBLEMA CLASE 9 -->
+<!-- Crear una curva de bézier y hacer que los puntos de atracción cambien de valor. Redibujar la curva cada vez que modificamos dichos valores. -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>curva de bezier</title>
+  <meta charset="UTF-8">
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function inicio() {
+  setInterval(dibujar,1000);
+}
+
+var fila1=50;
+var fila2=250;
+var direccion=true;
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.lineWidth=10;
+    lienzo.lineCap="round";
+    lienzo.beginPath();
+    lienzo.moveTo(10,150);
+    lienzo.bezierCurveTo(100,fila1,200,fila2,290,150);
+    lienzo.stroke();
+    if (direccion) {
+      fila1++;
+      fila2--;
+      if (fila1==250)
+        direccion=false;
+    } else {
+      fila1--;
+      fila2++;
+      if(fila1==50) 
+        direccion=true;
+    }
+  }
+}
+</script>
+
+</head>
+<body onLoad="inicio()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

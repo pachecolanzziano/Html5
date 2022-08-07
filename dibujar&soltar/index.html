@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<style>
+  #recuadro {
+    width:300px;
+    height:50px;
+    background-color:yellow;
+    border-style:solid;
+    border-color:red;
+    font-size:1.5em;
+  }
+  #palabras span {
+    font-size:1.5em;
+  }
+</style>  
+
+<script>
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('palabra1').addEventListener('dragstart', drag, false);
+        document.getElementById('palabra2').addEventListener('dragstart', drag, false);
+        document.getElementById('palabra3').addEventListener('dragstart', drag, false);
+        document.getElementById('palabra4').addEventListener('dragstart', drag, false);                
+        document.getElementById('recuadro').addEventListener('dragover', permitirDrop, false);        
+        document.getElementById('recuadro').addEventListener('drop', drop, false);                
+    }
+    
+    function drag(ev)
+    {
+        ev.dataTransfer.setData("Text",ev.target.id);
+    }    
+    
+    function drop(ev)
+    {
+        ev.preventDefault();
+        var dato=ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(dato));
+    }  
+
+    function permitirDrop(ev)
+    {
+        ev.preventDefault();
+    }
+</script>
+
+</head>
+<body>
+  <p>Arrastre en orden las palabras para formar la oración correcta.</p>
+  <div id="recuadro"></div>
+  <div id="palabras">
+    <span id="palabra1" draggable="true">the </span>
+    <span id="palabra2" draggable="true">is </span>
+    <span id="palabra3" draggable="true">What </span>
+    <span id="palabra4" draggable="true">time </span>    
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<style>
+#caja {
+  margin: 10px;
+  width: 350px;
+  height: 350px;
+  border: 5px dashed gray;
+  border-radius: 8px;
+  background: rgb(230,230,230);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+</style>
+  
+  
+<script>
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('archivo').addEventListener('change', cargar, false);               
+    }
+
+    function cargar(ev) {
+        var arch=new FileReader();
+        arch.addEventListener('load',leer,false);
+        arch.readAsDataURL(ev.target.files[0]);
+    }
+    
+    function leer(ev) {
+        document.getElementById('caja').style.backgroundImage="url('" + ev.target.result + "')";
+    }
+</script>
+</head>
+
+<body>
+<p>Lectura de una imagen almacenada en el disco duro.</p>
+<input type="file" id="archivo"><br>
+<div id="caja">
+</div>
+</body>
+</html>

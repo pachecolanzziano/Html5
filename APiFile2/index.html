@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>  
+  <meta charset="UTF-8">
+
+<script>
+    window.addEventListener('load', inicio, false);
+
+    function inicio() {
+        document.getElementById('archivo').addEventListener('change', cargar, false);               
+    }
+
+    function cargar(ev) {
+        document.getElementById('datos').innerHTML='';
+        document.getElementById('editor').value='';
+        for(var f=0;f<ev.target.files.length;f++) {
+        document.getElementById('datos').innerHTML=document.getElementById('datos').innerHTML+
+                                                   'Nombre del archivo:'+ev.target.files[f].name+'<br>';
+          var arch=new FileReader();
+          arch.addEventListener('load',leer,false);
+          arch.readAsText(ev.target.files[f]);
+        }  
+    }
+    
+    function leer(ev) {
+        document.getElementById('editor').value=document.getElementById('editor').value+ev.target.result+
+                                                '\n-------------------------------------------------------\n';
+    }
+</script>
+</head>
+
+<body>
+<p>Selecciona un conjunto de archivos de texto del disco duro.</p>
+<input type="file" id="archivo" multiple><br>
+<textarea rows="10" cols="80" id="editor"></textarea>
+<br>
+<p id="datos"></p>
+</body>
+</html>
